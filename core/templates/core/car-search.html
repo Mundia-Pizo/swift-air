@@ -1,0 +1,18 @@
+{%extends 'core/layout.html'%}
+{%block content%}
+<section class="container">
+    <div class="" style="padding-top:40px;">
+        <h1>Results found for ""</h1>
+        <form action="." method="POST">
+            {%csrf_token%}
+            <div class="subscription-input">
+                <input type="text" name="email" value="" placeholder="Enter the type of car">
+                <button class="subscription-button">Search</button>
+            </div>
+        </form>
+        <div class="search-body">
+            <h1>We have found the folowing for your liking </h1>
+        </div>
+    </div> 
+</section>
+{%endblock content%}

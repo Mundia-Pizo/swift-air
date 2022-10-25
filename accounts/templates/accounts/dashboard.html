@@ -1,0 +1,27 @@
+{%extends 'core/layout.html'%}
+{%load crispy_forms_tags%}
+{%block content%}
+<div class="container">
+    <div class="container" style="margin-top:30px;">
+        <h1 style="margin-bottom:20px ;">{{user.username}}'s Dasboard</h1>
+         <div>
+             <h1 style="margin-bottom:15px ;">My Tickets</h1>
+             {%for ticket in tickets%}
+                <div class="ticket-card">
+                    <div>
+                        <h1>{{ticket.flight.origin}}- {{ticket.flight.destination}}</h1>
+                        <p>Date paid : {{ticket.date_booked}}</p>
+                    </div>
+                    <div>
+                        <p>Amount paid : ${{ticket.get_total_price}}</p>
+                    </div>
+                </div>
+              {%empty%}
+              <div class="ticket-card">
+                   <h4>You have no purchased tickets</h4>
+               </div>
+             {%endfor%}
+         </div>
+    </div>
+</div>
+{%endblock content%}

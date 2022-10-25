@@ -1,0 +1,32 @@
+
+<section>
+    <div class="container" style="padding-left:10px; margin-top:45px; margin-bottom:45px; background-color:aliceblue">
+        <h1>Where do you want to go? </h1>
+        <form action="{% url 'search'%}" class="ticket-form">
+            <div class="subscription-input" >
+                <div class="input-section">
+                    <label for="" style="padding-right: 12px;">From</label>
+                    <input id="origin" onchange="" type="text" class="joint" placeholder="Enter location from " required>
+                </div>
+                <div class="input-section">
+                    <label for="" style="padding-right: 12px;">Destination</label>
+                    <input type="text" id="destination" default="Lusaka" name="" placeholder="Enter Destination " required>
+                </div>
+                <div class="input-section">
+                    <label for="" style="padding-right: 12px;">Lift off Date</label>
+                    <input type="date" id="time1" name="" placeholder="Departure date" required>
+                </div>
+                <div class="input-section">
+                    <label for="" style="padding-right: 12px; padding-left:12px">Arival</label>
+                    <input type="date" id="time2" name="" placeholder="Enter arival date" required>
+                </div>
+                <input id="final" name="q" type="hidden">
+               
+            </div>
+            <div style="margin-top:15px ;margin-bottom:30px">
+                <button id="submit-button" style="margin-bottom:30px" type="submit">search</button>
+            </div>
+            
+        </form>
+    </div> 
+</section>

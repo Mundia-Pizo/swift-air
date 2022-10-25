@@ -1,0 +1,21 @@
+{%extends 'core/layout.html'%}
+{%block content%}
+<section class="container">
+    <div class="container">
+        <h1>{{object.title}}</h1>
+        {%for place in object.places.all%}
+        <div class="place-grid">
+            <div>
+                <a href="{% url 'place-detail' slug=place.slug%}">
+                     <img src="{{place.image.url}}" alt="">
+                </a>
+            </div>
+            <div>
+                <h1>{{place.title}}</h1>
+                <h5>{{place.body}} body</h5>
+            </div>
+        </div>
+        {%endfor %}
+   </div>
+</section>
+{%endblock content%}

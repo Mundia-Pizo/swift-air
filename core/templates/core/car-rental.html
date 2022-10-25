@@ -1,0 +1,25 @@
+{%extends 'core/layout.html'%}
+{%block content%}
+<section class="container">
+    <div class="" style="padding-top:40px;">
+        <h1>Want to Hire a Car???</h1>
+        <form action="." method="POST">
+            {%csrf_token%}
+            <div class="subscription-input">
+                <input type="text" name="email" value="" placeholder="Enter the type of car" >
+                <button class="subscription-button">Search</button>
+            </div>
+        </form>
+        <div class="main-grid">
+            {%for car in cars%}
+            <div>
+                <img src="{{car.image.url}}" alt="">
+                <h1>{{car.title}}</h1>
+                <small>K{{car.price_perday}} /day</small>
+               <a href="{% url 'car-detail' slug=car.slug%}"><button>Book Now</button></a> 
+            </div>
+            {%endfor%}
+        </div>
+    </div> 
+</section>
+{%endblock content%}

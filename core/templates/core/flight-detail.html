@@ -1,0 +1,33 @@
+{%extends 'core/layout.html'%}
+{%block content%}
+<section class="container">
+    <div class="" style="padding-top:40px;">
+        <div class="">
+            <h1>{{object.title}}</h1>
+            <h1>Flights available</h1>
+            {%for flight in object.flights.all%}
+                <div style="background-color: aliceblue;margin-top:20px; margin-bottom:20px">
+                    <div style="display: flex; flex-direction:row; justify-content:space-between; padding:20px">
+                        <div>
+                            <h1>{{flight.title}}</h1>
+                            <small>Take's off {{flight.date}} returns on {{flight.date_of_return}}</small>
+                        </div>
+                        <div style="display:flex; flex-direction:row;">
+                            <h3 style="padding-top:5px; padding-right:5px">${{flight.flight_charge}}</h3>
+                            <a href="{{flight.get_add_to_book_url}}">
+                                <button>Book Ticket</button>
+                             </a>
+                        </div>
+                    </div>
+                   
+                </div>
+            {%endfor%}
+        </div>
+
+          <!-- this is for the form for the payment of he website  -->
+
+
+
+    </div> 
+</section>
+{%endblock content%}

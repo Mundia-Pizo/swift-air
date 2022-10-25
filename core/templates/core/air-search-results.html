@@ -1,0 +1,48 @@
+
+{%extends 'core/layout.html'%}
+{% load class_name %}
+{%load static%}
+{%block content%}
+    <section class="container"> 
+        <div class="" style="margin: auto;">
+            <h1 class="text-center">Search results for <b>"{{query}}"</b></h1>
+                <div class="row mx-auto search-grid">
+                        {% for flight in object_list %}
+                        {% with flight|class_name as klass %}
+                        {% if klass == 'Flight' %}
+                            <div style="background-color: aliceblue;margin-top:20px; margin-bottom:20px">
+                                <div style="display: flex; flex-direction:row; justify-content:space-between; padding:20px">
+                                    <div>
+                                        <h1>{{flight.origin}} - {{flight.destination}}</h1>
+                                        <small>Take's off {{flight.date}} returns on {{flight.date_of_return}}</small>
+                                    </div>
+                                    <div style="display:flex; flex-direction:row;">
+                                        <h3 style="padding-top:5px; padding-right:5px">${{flight.flight_charge}}</h3>
+
+                                         <a href="{{flight.get_add_to_book_url}}">
+                                            <button>Book Ticket</button>
+                                         </a>
+                                        
+                                        <!-- <form>
+                                            <button type="button" id="start-payment-button" onclick="makePayment()">Book now</button>
+                                        </form> -->
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        
+                        {% endif %}
+                            
+                        {% endwith %}
+                        
+                        {% empty %}
+                        <div class="container" style="margin: auto;"> 
+                            <h1 class="text-center" style="margin-top: 15px;">No results found :(</b></h1>
+                            <h6 class="text-center" style="margin-top: 25px;">Try using key words such as places like Lusaka, Johanesburg, Livingstine etc.</h6>
+                        </div>
+                        {% endfor %}
+                </div>
+
+        </div>
+    </section>
+{%endblock content%}

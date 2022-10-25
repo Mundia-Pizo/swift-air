@@ -1,0 +1,26 @@
+{%load static%}
+<nav>
+     <label class="logo"><a href="{%url 'home'%}">Swift Air</a></label>
+    </div>
+    <ul>
+        <li><a href="{%url 'home'%}"> Home</a></li>
+        <li><a href="{% url 'posts'%}"> Discover</a></li>
+        {%if user.is_authenticated%}
+            <li> <a href="{% url 'logout'%}"> logout </a></li>
+            <li> <a href="{% url 'dashboard'%}">@{{user.username}}</a></li>
+        {%else%}
+            <li> <a href="{% url 'login'%}"> Sign in </a></li>
+            <li><a href="{% url 'register'%}">Sign Up</a> </li>
+        {%endif%}
+    </ul>
+    <div class="icon">
+       <div class="links"></div>
+       <div class="links"></div>
+       <div class="links"></div>
+    </div>
+ </nav>
+
+
+
+
+

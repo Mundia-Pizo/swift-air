@@ -1,0 +1,20 @@
+{%extends 'core/layout.html'%}
+{%load crispy_forms_tags%}
+{%block content%}
+<div class="container">
+    <div class="space-bottom">
+        <div class="form-area">
+            <form  action="{%url 'register'%}" method="POST" class="col-md-10 mx-auto">
+                {%csrf_token%}
+                <legend><h1>Register</h1></legend>
+                {{form | crispy }}
+                <div>
+                    <button type="submit">Register</button><span>
+                        <small class="ml-4">Already have an account? <a style="color:blue" href="{%url 'login'%}">login</a></small>
+                    </span>
+                </div> 
+            </form>
+        </div>
+    </div>
+</div>
+{%endblock content%}

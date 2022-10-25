@@ -1,0 +1,45 @@
+
+{%extends 'core/layout.html'%}
+{%load static%}
+{%block content%}
+    {%include "core/air-ticket.html"%}
+    <div class="container">
+    <h1 style="font-size:26px">Available flights</h1>
+    </div>
+    {%for flight in flights%}
+    <div class="container" style="margin: auto;">
+    <div style="background-color: aliceblue;margin-top:20px; margin-bottom:20px">
+        <div style="display: flex; flex-direction:row; justify-content:space-between; padding:20px">
+            <div>
+                <h1>{{flight.origin}} - {{flight.destination}}</h1>
+                <small>Take's off {{flight.date}} returns on {{flight.date_of_return}}</small>
+            </div>
+            <div style="display:flex; flex-direction:row;">
+                <h3 style="padding-top:5px; padding-right:5px">${{flight.flight_charge}}</h3>
+                <a href="{{flight.get_add_to_book_url}}">
+                    <button>Book Ticket</button>
+                    </a>
+            </div>
+        </div>
+        
+    </div>
+    </div>
+    {%endfor %}
+    <div class="container home-blog-section">
+        <h2>Explore new places </h2>
+        <div class="home-posts">
+            {%for post in latest_posts%}
+                <div class="post-content">
+                    <a href="{% url 'post-detail' slug=post.slug%}">
+                    <img class="home-post-image" src="{{post.image.url}}" alt="">
+                    <h2>{{post.title}}</h2>
+                    <p>{{post.description|safe}}</p>
+                    </a>
+                </div>
+            {%endfor%}
+        </div>
+    </div>
+
+        
+   
+{%endblock content%}

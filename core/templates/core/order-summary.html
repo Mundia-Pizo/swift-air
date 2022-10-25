@@ -1,0 +1,79 @@
+{%extends 'core/layout.html'%}
+{%load static%}
+{%block content%}
+<section class="container">
+    <div class="" style=" margin-top:45px; margin-bottom:45px;">
+        <h1 class="order-label">Ticket Order Summary</h1>
+        {%for order in orders%}
+        <div class="ticket-card">
+            <div>
+                <h1 class="flight-title">{{order.flight.origin}} - {{order.flight.destination}}</h1>
+                <h5>{{order.flight.date}}</h5>
+            </div>
+            <div>
+                <div>
+                    <small>Tickets:<span><a href="{{order.flight.get_remove_single_book_url}}"><img class="icon-image" src="{% static 'core/images/minus1.jpg'%}" alt=""></a></span> <span class="quantity-border">{{order.quantity}} </span><span><a href="{{order.flight.get_add_to_book_url}}"><img class="icon-image" src="{%static 'core/images/plus1.jpg'%}" alt=""></a></span> <span> <a href="{{order.flight.get_remove_from_book_url}}"><img style="float:right;" class="icon-image" src="{% static 'core/images/delete.png'%}" alt=""></a></span></small>
+                    <p>Total charge : <strong>${{order.get_total_price}}</strong></p>
+                </div>
+                <!-- <div>
+                    <a href="{{order.flight.get_remove_from_book_url}}"><img class="icon-image" src="{% static 'core/images/delete.png'%}" alt=""></a>
+                </div> -->
+
+            </div>
+           
+            
+        </div>
+            {%empty%}
+            <div class="container" style="padding: 40px; background-color:aliceblue">
+                    <h1>You currently don't have any pending tickets :)</h1>
+            </div>
+            {%endfor%}
+        
+          <div>
+            {% if total_price %}
+            <div class="ticket-card">
+                <div>
+                    <h1>Amount Due</h1>
+                </div>
+                <div>
+                    <h2 style="float:right ;"><strong>${{total_price}}</strong></h2>
+                </div>
+            </div>
+           <form>
+              <button type="button" id="start-payment-button" onclick="makePayment()">Make Payment</button>
+           </form> 
+           <script src="https://checkout.flutterwave.com/v3.js"></script>
+            <script>
+                function makePayment() {
+                    FlutterwaveCheckout({
+                    public_key: "FLWPUBK_TEST-5815cdc33d25c550283380763cf7c4c5-X",
+                    tx_ref: "titanic-48981487343MDI0NzMx",
+                    amount: parseFloat('{{total_price}}'),
+                    currency: "USD",
+                    payment_options: "card, banktransfer, ussd",
+                    redirect_url: "http://localhost:8000/success",
+                    meta: {
+                        consumer_id: 23,
+                        consumer_mac: "92a3-912ba-1192a",
+                    },
+                    customer: {
+                        email: "{{user.email}}",
+                        phone_number: "08102909304",
+                        name: "{{user.username}}",
+                    },
+                    customizations: {
+                        title: "Swift Air",
+                        description: "Air Ticket Payment",
+                        logo: "https://www.logolynx.com/images/logolynx/22/2239ca38f5505fbfce7e55bbc0604386.jpeg",
+                    },
+                    });
+                }
+                </script>
+                {%else%}
+                     
+                {%endif%}
+
+        </div>
+    </div> 
+</section>
+{%endblock content%}

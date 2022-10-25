@@ -1,0 +1,23 @@
+{%extends 'core/layout.html'%}
+{%load static%}
+{%block content%}
+<section class="container">
+    <div class="blog-section">
+        <h1>Get insight from exploring</h1>
+        <div class="sub-grid">
+            {%for post in posts%}
+            <a href="{% url 'post-detail' slug=post.slug%}">
+                <div class="blog-post card">
+                    <img src="{{post.image.url}}" alt="">
+                    <div class="centered-text" style="color:white ; font-size:large">
+                        <h1>{{post.title}}</h1>
+                        <p>{{post.description | safe}}</p>
+                    </div>
+                </div>
+            </a>
+            {%endfor%}
+            
+        </div>
+   </div>
+</section>
+{%endblock content%}

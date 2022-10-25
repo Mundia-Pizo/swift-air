@@ -1,0 +1,432 @@
+*{
+    margin:0;
+    padding:0;
+    list-style: none;
+    font-family: 'Montserrat', sans-serif;
+   
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font: 15px/1.5 Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+
+.form-area{
+    width:50%;
+    background-color: aliceblue;
+    padding: 30px;
+    margin: auto;
+    margin-top: 40px;
+}
+.form-area input{
+    width: 100%;
+    height: 25px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 4px;
+}
+.form-area button{
+    margin-top: 10px;
+}
+
+body{
+     background-color: #fafafa;
+}
+
+.container{
+    width: 80%;
+    margin: auto;
+}
+.main-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+.sub-grid, .place-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 24px;
+    
+}
+.place-grid{
+    grid-template-columns: 1fr 2fr;
+}
+.blog-section{
+    padding-top: 40px;
+}
+.input-section label{
+    padding: 10px;
+}
+.card{
+    padding:8px;
+
+}
+.subscription-input{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.subscription-input input{
+    height: 25px;
+    padding: 6px;
+    width: 80%;
+    border-radius: 8px;
+    box-shadow: none;
+}
+.input-section{
+    display:flex ; 
+    flex-direction:column
+}
+.subscription-input .subscription-button{
+    background-color: tomato;
+    text-transform: uppercase;
+}
+.subscription-input input{
+    font-size: 16px;
+}
+.subscription-section{
+    background-color: powderblue;
+    height: 150px;
+    padding: 40px;
+}
+.cart-image{
+    width: 30px;
+    height: 30px;
+    border-radius: 45%;
+    display: inline-block;
+
+}
+.subscription-section h1, h4{
+    padding-bottom: 8px;
+    padding-top: 8px;
+    letter-spacing: 1.5px;
+}
+.card h1{
+    font-weight: bolder;
+}
+.margin-top{
+    padding-top: 28px;
+    padding-bottom: 10px;
+}
+.card img{
+    width: 100%;
+    max-height: 220px;
+    border-radius: 10px;
+    opacity: 85%;
+    object-fit: cover;
+
+}
+
+
+.sub-grid img{
+    min-height: 350px;
+    padding: 0px;
+    border-radius: 12px;
+}
+.place-detail-image{
+    width: 100%;
+    height:auto;
+    object-fit: cover;
+}
+.blog-post{
+    position: relative;
+}
+.centered-text {
+    position: absolute;
+    top: 60%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+
+  }
+
+.background{
+    display: flex;
+    flex-direction: row;
+}
+.background h1{
+    font-size: 35px;
+}
+.background p{
+    font-size: 20px;
+    padding-top: 18px;
+}
+.background .blob-float{
+    width: 60%;
+    padding-bottom: 40px;
+}
+button{
+    padding:6px 10px 6px 10px;
+    border-radius: 6px;
+    box-shadow: none;
+    background-color: powderblue;
+}
+
+ footer section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+.car-detail{
+    width: 80%;
+    height: auto;
+    object-fit: cover;
+}
+.date-input{
+    display: flex;
+    flex-direction: row;
+}
+.date-input div{
+    padding:10px;
+}
+.search-body{
+    padding-top:30px;
+}
+.cart-icon{
+    max-height: 25px;
+    max-width: 25px;
+    border-radius: 50%;
+}
+
+/* this is the section for the order label */
+.order-label{
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+.ticket-form{
+    width: 90%;
+    margin: auto;
+}
+.ticket-card{
+    background-color: aliceblue;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+.icon-image{
+    width: 15px;
+    height: 15px;
+}
+.quantity-border{
+    border:1px solid #607d8b;
+    padding: 2px 4px 2px 4px;
+    margin: 0 3px 0 3px;
+}
+
+
+footer{
+    padding-top:50px;
+    padding-bottom:80px;
+}
+.footer-content{
+    min-width:250px;
+    padding-top: 30px;
+}
+footer section{
+    flex-wrap: wrap;
+    padding-top: 25px;
+}
+.home-posts{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+}
+.home-posts div{
+    padding: 20px;
+}
+.home-post-image{
+    width: 100%;
+}
+.home-posts a{
+    text-decoration: none;
+    color: black;
+}
+.home-blog-section{
+    padding: 3px;
+    border: 1px solid #333;
+}
+
+nav .icon{
+    width: 25px;
+    cursor: pointer;
+    line-height: 80px;
+    float: right;
+    padding-top: 30px;
+    margin-right: 40px;
+    display: none;
+}
+.icon .links{
+    border: 2px solid white;
+    margin: 3px 0 3px 0;
+}
+
+nav .logo{
+    font-size: 35px;
+    color: white;
+    font-weight: bold;
+    padding: 0 80px ;
+    line-height: 80px;
+}
+nav .logo a{
+    color: white;
+}
+nav .logo-anchor{
+    width: 100px;
+    margin-left: 40px;
+    font-size: 30px;
+    color: white;
+}
+nav ul{
+    float: right;
+    margin-right: 40px;
+}
+nav ul li{
+    display: inline-block;
+    color: white;
+    line-height: 80px;
+    font-size: 18px;
+    padding: 0 16px 0 16px;
+}
+nav ul a{
+    color: white;
+}
+
+@media(max-width:1080px){
+    nav .logo{
+        font-size: 32px;
+        padding-left: 30px;
+    }
+    nav ul{
+        margin-right: 20px;
+    }
+}
+
+@media(max-width:909px){
+    nav .icon{
+        display: block
+    }
+    .ticket-card{
+        padding: 15px;
+    }
+    nav ul{
+        position: absolute;
+        height: 92vh;
+        width: 100%;
+        background-color: #333;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all 0.5s;
+        z-index: 1;
+    }
+    nav ul li{
+        display: block;
+        margin:50px 0;
+        line-height: 30px;
+    }
+    nav ul.show{
+        left: 0px;
+    }
+}
+
+
+
+@media(max-width:870px){
+    .subscription-input{
+        grid-template-columns: 1fr 1fr;
+    }
+ }
+
+@media(max-width:680px){
+    .container{
+        width: 90%;
+    }
+    .subscription-input{
+        grid-template-columns: 1fr;
+    }
+    .subscription-input input{
+        width: 95%;
+        height: 30px;
+        border-radius: 25px;
+        padding: 8px;
+    }
+    .home-posts{
+        grid-template-columns: 1fr;
+    }
+   .form-area{
+       width: 80%;
+   }
+   .sub-grid{
+       grid-template-columns: 1fr;
+   }
+   .ticket-card{
+       grid-template-columns: 1fr 1fr;
+   }
+   
+  
+}
+
+
+nav{
+    background-color: #35424a;
+}
+
+
+.ticket{
+    margin: 10px 0px 10px 0;
+    border: 1px solid lightblue;
+    padding: 8px;
+
+    
+}
+
+
+@media(max-width:768px){
+    body{
+        overflow-x: hidden;
+    }
+   .burger{
+       display: block;
+   }
+   nav  .link-display{
+       display: none;
+   }
+   .logo{
+       font-size: 16px;
+   }
+   .nav-links{
+       display: flex;
+       flex-direction: column;
+       position:absolute;
+       right: 0px;
+       height: 80vh;
+       top: 15vh;
+       align-items: center;
+       background-color: #35424a;
+       transform: translateX(100%);
+       transition: transform 0.5s ease-in;
+   }
+
+   .nav-active{
+    transform: translateX(0);
+   }
+}
+/* @keyframes navLinkSlide{
+    from{
+       opacity: 0;
+       transform:translateX(50px);
+    }
+    to{
+       opacity: 1;
+       transform: translateX(0px);
+    }
+} */
+
+

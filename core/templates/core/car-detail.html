@@ -1,0 +1,60 @@
+{%extends 'core/layout.html'%}
+{%block content%}
+<section class="container">
+    <div class="container" style="padding-top:40px;">
+        <img src="{{object.image.url}}" alt="" class="car-detail">
+        <form action="" method="POST" class="" style="width: 80%; margin:auto; background-color:aliceblue; padding:40px">
+            {%csrf_token%}
+            <div class="subscription-input date-input">
+                <div style="display: flex; flex-direction:row">
+                    <label for="" style="padding-right: 12px;">from</label>
+                    <input type="date" name="email" value="" placeholder="Enter the type of car">
+                </div>
+                <div id="date1" style="display:flex; flex-direction:row">
+                    <label for="" style="padding-right: 12px; padding-left:12px">to</label>
+                    <input type="date" name="email" value="" placeholder="Enter the type of car">
+                </div>
+            </div>
+            <div id="date2"style="display:flex; flex-direction:row">
+                <label for="" style="padding-right: 12px; padding-left:12px">Number of days </label>
+                <input type="number" name="email" value="1" placeholder="0">
+            </div>
+            <div style="display:flex; flex-direction:row">
+                <label for="" style="padding-right: 12px; padding-left:12px">Amount due:K</label>
+                <input type="number" name="email" value="123" placeholder="0">
+            </div>
+
+              <form>
+                <button type="button" id="start-payment-button" onclick="makePayment()">Book now</button>
+              </form>
+                    <script src="https://checkout.flutterwave.com/v3.js"></script>
+                    <script>
+                    function makePayment() {
+                        FlutterwaveCheckout({
+                        public_key: "FLWPUBK_TEST-SANDBOXDEMOKEY-X",
+                        tx_ref: "titanic-48981487343MDI0NzMx",
+                        amount: parseFloat('{{object.price_perday}}'),
+                        currency: "USD",
+                        payment_options: "card, banktransfer, ussd",
+                        redirect_url: "http://localhost:8000",
+                        meta: {
+                            consumer_id: 23,
+                            consumer_mac: "92a3-912ba-1192a",
+                        },
+                        customer: {
+                            email: "{{user.email}}",
+                            phone_number: "08102909304",
+                            name: "{{user.username}}",
+                        },
+                        customizations: {
+                            title: "Swift Air",
+                            description: "Air Ticket Payment",
+                            logo: "https://www.logolynx.com/images/logolynx/22/2239ca38f5505fbfce7e55bbc0604386.jpeg",
+                        },
+                        });
+                    }
+                    </script>
+        </form>
+    </div> 
+</section>
+{%endblock content%}
